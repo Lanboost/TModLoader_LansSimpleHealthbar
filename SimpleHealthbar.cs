@@ -1,7 +1,7 @@
 using Terraria;
 using Terraria.ModLoader;
 
-namespace SimpleHealthbar
+namespace LansSimpleHealthbar
 {
 	public class SimpleHealthbar : Mod
 	{
