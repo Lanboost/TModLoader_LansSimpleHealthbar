@@ -3,6 +3,7 @@
     "Terraria": {
       "commandName": "Executable",
       "executablePath": "$(tMLPath)",
+      "commandLineArgs": "-skipselect ttt:test",
       "workingDirectory": "$(TerrariaSteamPath)"
     },
     "TerrariaServer": {
