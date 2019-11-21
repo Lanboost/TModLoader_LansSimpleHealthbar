@@ -21,6 +21,10 @@ namespace LansSimpleHealthbar
 		[Label("Show Potion Sickness")]
 		[DefaultValue(true)]
 		public bool ShowPotionSickness;
-		
+
+		[Label("Show Potion Sickness when at full health")]
+		[DefaultValue(true)]
+		public bool ShowPotionSicknessAtFullHealth;
+
 	}
 }

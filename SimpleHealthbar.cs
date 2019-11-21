@@ -25,73 +25,51 @@ namespace LansSimpleHealthbar
 			var num25 = Main.myPlayer;
 			base.DrawEffects(drawInfo, ref r, ref g, ref b, ref a, ref fullBright);
 
-			if (Main.player[num25].active && !Main.player[num25].ghost && !Main.player[num25].dead && Main.player[num25].statLife != Main.player[num25].statLifeMax2)
+			int num26 = 0;
+			if (Main.HealthBarDrawSettings == 1)
 			{
-				if (Main.HealthBarDrawSettings == 1)
-				{
-					int num26 = 10;
-
-					int x = (int)( Main.player[num25].position.X + (float)(Main.player[num25].width / 2));
-					int y = (int)(Main.player[num25].position.Y + (float)Main.player[num25].height + Main.player[num25].gfxOffY);
-					int dy = y + num26;
-					int health = Main.player[num25].statLife;
-					int maxHealth = Main.player[num25].statLifeMax2;
-					var brightness = Lighting.Brightness((int)(x/ 16f), (int)(y / 16f));
-
-
-					Main.instance.DrawHealthBar(x, dy, health, maxHealth, brightness, 1f);
-					dy += 10;
-					if (GetInstance<Config>().ShowMana)
-					{
-
-						DrawManaBar(x, dy, Main.player[num25].statMana, Main.player[num25].statManaMax2, 1f);
-					}
-					if (GetInstance<Config>().ShowPotionSickness)
-					{
-						for (int i = 0; i < Main.player[num25].buffType.Length; i++)
-						{
-							if (Main.player[num25].buffType[i] == BuffID.PotionSickness)
-							{
-								DrawPotionSickness(x, dy, Main.player[num25].buffTime[i]);
-							}
-						}
-					}
-				}
-				else if (Main.HealthBarDrawSettings == 2)
-				{
-					int num26 = -20;
-
-					int x = (int)(Main.player[num25].position.X + (float)(Main.player[num25].width / 2));
-					int y = (int)(Main.player[num25].position.Y + (float)Main.player[num25].height + Main.player[num25].gfxOffY);
-					int dy = y + num26;
-					int health = Main.player[num25].statLife;
-					int maxHealth = Main.player[num25].statLifeMax2;
-					var brightness = Lighting.Brightness((int)(x / 16f), (int)(y / 16f));
-
-
-					Main.instance.DrawHealthBar(x, dy, health, maxHealth, brightness, 1f);
-					dy += 10;
-					if (GetInstance<Config>().ShowMana)
-					{
-						DrawManaBar(x, dy, Main.player[num25].statMana, Main.player[num25].statManaMax2, 1f);
-					}
-					if (GetInstance<Config>().ShowPotionSickness)
-					{
-						for (int i = 0; i < Main.player[num25].buffType.Length; i++)
-						{
-							if (Main.player[num25].buffType[i] == BuffID.PotionSickness)
-							{
-								DrawPotionSickness(x, dy, Main.player[num25].buffTime[i]);
-							}
-						}
-					}
-				}
-
-
-
+				num26 = 10;
 			}
+			else if (Main.HealthBarDrawSettings == 2)
+			{
+				num26 = -20;
+			}
+			int x = (int)(Main.player[num25].position.X + (float)(Main.player[num25].width / 2));
+			int y = (int)(Main.player[num25].position.Y + (float)Main.player[num25].height + Main.player[num25].gfxOffY);
+			int dy = y + num26;
+			int health = Main.player[num25].statLife;
+			int maxHealth = Main.player[num25].statLifeMax2;
+			var brightness = Lighting.Brightness((int)(x / 16f), (int)(y / 16f));
 
+			if (Main.player[num25].active && !Main.player[num25].ghost && !Main.player[num25].dead)
+			{
+				if (Main.player[num25].statLife != Main.player[num25].statLifeMax2)
+				{
+					Main.instance.DrawHealthBar(x, dy, health, maxHealth, brightness, 1f);
+				}
 
+				dy += 10;
+				if (GetInstance<Config>().ShowMana)
+				{
+					if (Main.player[num25].statMana != Main.player[num25].statManaMax2)
+					{
+						DrawManaBar(x, dy, Main.player[num25].statMana, Main.player[num25].statManaMax2, 1f);
+					}
+				}
+				if (GetInstance<Config>().ShowPotionSickness)
+				{
+					if (Main.player[num25].statLife != Main.player[num25].statLifeMax2 || GetInstance<Config>().ShowPotionSicknessAtFullHealth)
+					{
+						for (int i = 0; i < Main.player[num25].buffType.Length; i++)
+						{
+							if (Main.player[num25].buffType[i] == BuffID.PotionSickness)
+							{
+								DrawPotionSickness(x, dy, Main.player[num25].buffTime[i]);
+							}
+						}
+					}
+				}
+			}
 
 		}
 

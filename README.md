@@ -5,6 +5,11 @@
 # Change log:
 V. 0.2.1:
 
+	- Fixed issue with mana and health potion only showing up when at full health
+
+
+V. 0.2.1:
+
 	- Added configurable manabar
 	- Added configurable potion sickness icon
 
