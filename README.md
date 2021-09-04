@@ -17,7 +17,7 @@ V. 0.2.1:
 * [Lanboosts Auto Join Team](https://github.com/Lanboost/TModLoader_LansAutoJoinTeam)
   * Automatically joins the red team whenever you play terraria, perfect for lazy people!
 * [Lanboosts Auto Summon](https://github.com/Lanboost/TModLoader_LansAutoSummon)
-  * Automatically summons whatever is in hotkey slot 9, perfect for lazy people!
+  * Automatically summons whatever is in hotkey slot 0 (configurable), perfect for lazy people!
 * [Lanboosts Boss Arena Buffs](https://github.com/Lanboost/TModLoader_LansBossArenaBuffs)
   * Not yet available
 * [Lanboosts House Builder](https://github.com/Lanboost/TModLoader_LansHouseBuilder)
@@ -45,5 +45,7 @@ NOTE: Actually sends the explored data on the network, could be done locally but
 Now supports disabled token recipes for: ImkSushisMod and TokenMod
 * [Lanboosts Unlimited Buff Slots](https://github.com/Lanboost/TModLoader_LansUnlimitedBuffSlots)
   * Gives the player an extra 200 buff slots so buffs doesn't override each other. Now uses TModLoader's internal code for this.
+* [Lanboosts Display Player Stats](https://github.com/Lanboost/TModLoader_LansDisplayPlayerStats)
+  * Lans Display Player Stats display most interesting player variables (does not support other mods custom stats).
 
  Contact me by issues for questions!

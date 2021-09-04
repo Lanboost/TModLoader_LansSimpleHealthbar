@@ -2,6 +2,8 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Graphics;
 using Terraria;
+using Terraria.DataStructures;
+using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.UI.Chat;
@@ -20,7 +22,7 @@ namespace LansSimpleHealthbar
 
 	public class SimpleHealthbarPlayer : ModPlayer
 	{
-		public override void DrawEffects(PlayerDrawInfo drawInfo, ref float r, ref float g, ref float b, ref float a, ref bool fullBright)
+		public override void DrawEffects(PlayerDrawSet drawInfo, ref float r, ref float g, ref float b, ref float a, ref bool fullBright)
 		{
 			var num25 = Main.myPlayer;
 			base.DrawEffects(drawInfo, ref r, ref g, ref b, ref a, ref fullBright);
@@ -81,17 +83,18 @@ namespace LansSimpleHealthbar
 				int offsetX = -50;
 				int offsetY = -10;
 				var pos = new Vector2(X + offsetX - Main.screenPosition.X, Y + offsetY - Main.screenPosition.Y);
-				Main.spriteBatch.Draw(Main.buffTexture[BuffID.PotionSickness], new Vector2(X+offsetX - Main.screenPosition.X, Y+offsetY - Main.screenPosition.Y), null, new Color(1, 1, 1, 0.1f), 0f, Vector2.Zero, 24/32f, SpriteEffects.None, 0f);
+				Main.spriteBatch.Draw(TextureAssets.Buff[BuffID.PotionSickness].Value, new Vector2(X+offsetX - Main.screenPosition.X, Y+offsetY - Main.screenPosition.Y), 
+					null, new Color(1, 1, 1, 0.1f), 0f, Vector2.Zero, 24/32f, SpriteEffects.None, 0f);
 
 
 				string text = "" + (left / 60);
 
-				var stringSize = ChatManager.GetStringSize(Main.fontItemStack, text, Vector2.One);
+				var stringSize = ChatManager.GetStringSize(FontAssets.ItemStack.Value, text, Vector2.One);
 				int stringOffsetX = (int) ((24- stringSize.X) /2f);
 				
 				int stringOffsetY = (int)((24 - stringSize.Y)/2f)+4;
 
-				Utils.DrawBorderStringFourWay(Main.spriteBatch, Main.fontItemStack, text, pos.X+stringOffsetX, pos.Y + stringOffsetY, Color.Yellow, Color.Black, new Vector2(0.3f), 1f);
+				Utils.DrawBorderStringFourWay(Main.spriteBatch, FontAssets.ItemStack.Value, text, pos.X+stringOffsetX, pos.Y + stringOffsetY, Color.Yellow, Color.Black, new Vector2(0.3f), 1f);
 			}
 		}
 
@@ -176,24 +179,30 @@ namespace LansSimpleHealthbar
 			{
 				if (num2 < 36)
 				{
-					Main.spriteBatch.Draw(Main.hbTexture2, new Vector2(num3 - Main.screenPosition.X + (float)num2 * scale, num4 - Main.screenPosition.Y), new Microsoft.Xna.Framework.Rectangle?(new Microsoft.Xna.Framework.Rectangle(2, 0, 2, Main.hbTexture2.Height)), color, 0f, new Vector2(0f, 0f), scale, SpriteEffects.None, 0f);
+					Main.spriteBatch.Draw(TextureAssets.Hb2.Value, new Vector2(num3 - Main.screenPosition.X + (float)num2 * scale, num4 - Main.screenPosition.Y), 
+						new Microsoft.Xna.Framework.Rectangle?(new Microsoft.Xna.Framework.Rectangle(2, 0, 2, TextureAssets.Hb2.Value.Height)), color, 0f, new Vector2(0f, 0f), scale, SpriteEffects.None, 0f);
 				}
 				if (num2 < 34)
 				{
-					Main.spriteBatch.Draw(Main.hbTexture2, new Vector2(num3 - Main.screenPosition.X + (float)(num2 + 2) * scale, num4 - Main.screenPosition.Y), new Microsoft.Xna.Framework.Rectangle?(new Microsoft.Xna.Framework.Rectangle(num2 + 2, 0, 36 - num2 - 2, Main.hbTexture2.Height)), color, 0f, new Vector2(0f, 0f), scale, SpriteEffects.None, 0f);
+					Main.spriteBatch.Draw(TextureAssets.Hb2.Value, new Vector2(num3 - Main.screenPosition.X + (float)(num2 + 2) * scale, num4 - Main.screenPosition.Y),
+						new Microsoft.Xna.Framework.Rectangle?(new Microsoft.Xna.Framework.Rectangle(num2 + 2, 0, 36 - num2 - 2, TextureAssets.Hb2.Value.Height)), color, 0f, new Vector2(0f, 0f), scale, SpriteEffects.None, 0f);
 				}
 				if (num2 > 2)
 				{
-					Main.spriteBatch.Draw(Main.hbTexture1, new Vector2(num3 - Main.screenPosition.X, num4 - Main.screenPosition.Y), new Microsoft.Xna.Framework.Rectangle?(new Microsoft.Xna.Framework.Rectangle(0, 0, num2 - 2, Main.hbTexture1.Height)), color, 0f, new Vector2(0f, 0f), scale, SpriteEffects.None, 0f);
+					Main.spriteBatch.Draw(TextureAssets.Hb1.Value, new Vector2(num3 - Main.screenPosition.X, num4 - Main.screenPosition.Y), 
+						new Microsoft.Xna.Framework.Rectangle?(new Microsoft.Xna.Framework.Rectangle(0, 0, num2 - 2, TextureAssets.Hb1.Value.Height)), color, 0f, new Vector2(0f, 0f), scale, SpriteEffects.None, 0f);
 				}
-				Main.spriteBatch.Draw(Main.hbTexture1, new Vector2(num3 - Main.screenPosition.X + (float)(num2 - 2) * scale, num4 - Main.screenPosition.Y), new Microsoft.Xna.Framework.Rectangle?(new Microsoft.Xna.Framework.Rectangle(32, 0, 2, Main.hbTexture1.Height)), color, 0f, new Vector2(0f, 0f), scale, SpriteEffects.None, 0f);
+				Main.spriteBatch.Draw(TextureAssets.Hb1.Value, new Vector2(num3 - Main.screenPosition.X + (float)(num2 - 2) * scale, num4 - Main.screenPosition.Y), 
+					new Microsoft.Xna.Framework.Rectangle?(new Microsoft.Xna.Framework.Rectangle(32, 0, 2, TextureAssets.Hb1.Value.Height)), color, 0f, new Vector2(0f, 0f), scale, SpriteEffects.None, 0f);
 				return;
 			}
 			if (num2 < 36)
 			{
-				Main.spriteBatch.Draw(Main.hbTexture2, new Vector2(num3 - Main.screenPosition.X + (float)num2 * scale, num4 - Main.screenPosition.Y), new Microsoft.Xna.Framework.Rectangle?(new Microsoft.Xna.Framework.Rectangle(num2, 0, 36 - num2, Main.hbTexture2.Height)), color, 0f, new Vector2(0f, 0f), scale, SpriteEffects.None, 0f);
+				Main.spriteBatch.Draw(TextureAssets.Hb2.Value, new Vector2(num3 - Main.screenPosition.X + (float)num2 * scale, num4 - Main.screenPosition.Y), 
+					new Microsoft.Xna.Framework.Rectangle?(new Microsoft.Xna.Framework.Rectangle(num2, 0, 36 - num2, TextureAssets.Hb2.Value.Height)), color, 0f, new Vector2(0f, 0f), scale, SpriteEffects.None, 0f);
 			}
-			Main.spriteBatch.Draw(Main.hbTexture1, new Vector2(num3 - Main.screenPosition.X, num4 - Main.screenPosition.Y), new Microsoft.Xna.Framework.Rectangle?(new Microsoft.Xna.Framework.Rectangle(0, 0, num2, Main.hbTexture1.Height)), color, 0f, new Vector2(0f, 0f), scale, SpriteEffects.None, 0f);
+			Main.spriteBatch.Draw(TextureAssets.Hb1.Value, new Vector2(num3 - Main.screenPosition.X, num4 - Main.screenPosition.Y), 
+				new Microsoft.Xna.Framework.Rectangle?(new Microsoft.Xna.Framework.Rectangle(0, 0, num2, TextureAssets.Hb1.Value.Height)), color, 0f, new Vector2(0f, 0f), scale, SpriteEffects.None, 0f);
 
 		}
 	}

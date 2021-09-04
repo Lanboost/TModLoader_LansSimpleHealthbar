@@ -1,5 +1,7 @@
 Always shows a personal healthbar, the same shown under other players!
 
+Source at: https://github.com/Lanboost/TModLoader_LansSimpleHealthbar
+
 
 Changelog:
 
