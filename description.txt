@@ -5,6 +5,8 @@ Source at: https://github.com/Lanboost/TModLoader_LansSimpleHealthbar
 
 Changelog:
 
+V. 2022.06.27:
+	- Updated to latest TModloader release
 V. 0.2.1:
 	- Fixed issue with mana and health potion only showing up when at full health
 V. 0.2.1:
