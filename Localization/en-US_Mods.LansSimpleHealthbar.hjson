@@ -1,0 +1,20 @@
+Configs: {
+	Config: {
+		DisplayName: Config
+
+		ShowMana: {
+			Label: Show Mana
+			Tooltip: ""
+		}
+
+		ShowPotionSickness: {
+			Label: Show Potion Sickness
+			Tooltip: ""
+		}
+
+		ShowPotionSicknessAtFullHealth: {
+			Label: Show Potion Sickness when at full health
+			Tooltip: ""
+		}
+	}
+}

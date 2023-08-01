@@ -1,6 +1,6 @@
 displayName = Lan's Simple Healthbar
 author = Lanboost
-version = 2022.06.27
+version = 2023.08.01.1
 side = Client
 includePDB = true
 includeSource = true

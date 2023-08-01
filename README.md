@@ -3,6 +3,9 @@
 
 
 # Change log:
+V. 2023.08.01.1:
+	- Ported to TML 1.4.4
+
 V. 0.2.1:
 
 	- Fixed issue with mana and health potion only showing up when at full health
@@ -11,7 +14,7 @@ V. 0.2.1:
 V. 0.2.1:
 
 	- Added configurable manabar
-	- Added configurable potion sickness icon
+	- Added configurable potion sickness ico
 
 # Other TModLoader mods by me:
 * [Lanboosts Auto Join Team](https://github.com/Lanboost/TModLoader_LansAutoJoinTeam)
